@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<form action="#" th:action="@{/}" th:object="${transferForm}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Surname:</td>
+            <td><input type="text" th:field="*{surname}" /></td>
+            <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Age Error</td>
+        </tr>
+        <tr>
+            <td>Transfer title:</td>
+            <td><input type="text" th:field="*{transferTitle}" /></td>
+            <td th:if="${#fields.hasErrors('transferTitle')}" th:errors="*{transferTitle}">transferTitle Error</td>
+        </tr>
+        <tr>
+            <td>Account number:</td>
+            <td><input type="text" th:field="*{accountNumber}" /></td>
+            <td th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}">accountNumber Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
