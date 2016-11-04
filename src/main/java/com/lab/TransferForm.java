@@ -22,6 +22,15 @@ public class TransferForm
     @Pattern(regexp="^[0-9]{16}$", message="Account number must contain 16 integer values")
     private String accountNumber;
 
+    public TransferForm(){}
+
+    public TransferForm(String name, String surname, String transferTitle, String accountNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.transferTitle = transferTitle;
+        this.accountNumber = accountNumber;
+    }
+
     public String getName() {
         return name;
     }
@@ -52,5 +61,12 @@ public class TransferForm
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Transfer[name='%s', surname='%s', transferTitle='%s', accountNumber='%s']",
+                name, surname, transferTitle, accountNumber);
     }
 }

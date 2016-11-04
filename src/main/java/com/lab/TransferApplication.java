@@ -12,11 +12,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class TransferApplication implements CommandLineRunner
 {
 	private static final Logger log = LoggerFactory.getLogger(TransferApplication.class);
+    private JdbcTemplate jdbcTemplate;
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+    public TransferApplication(JdbcTemplate jdbcTemplate)
+    {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
-	public static void main(String[] args) throws Exception
+    public static void main(String[] args) throws Exception
 	{
 		SpringApplication.run(TransferApplication.class, args);
 	}
@@ -28,7 +32,7 @@ public class TransferApplication implements CommandLineRunner
 
 		jdbcTemplate.execute("DROP TABLE trasnfer IF EXISTS");
 		jdbcTemplate.execute("CREATE TABLE transfer(" +
-				"id SERIAL, name VARCHAR(255), surname VARCHAR(255), transferTitle VARCHAR(255)," +
-				"accountNumber VARCHAR(255))");
+				"id SERIAL, name VARCHAR(255), surname VARCHAR(255), transfer_title VARCHAR(255)," +
+				"account_number VARCHAR(255))");
 	}
 }
