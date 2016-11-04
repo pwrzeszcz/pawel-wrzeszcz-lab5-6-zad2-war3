@@ -68,6 +68,6 @@ public class TransferController extends WebMvcConfigurerAdapter
             }
         });
 
-        return "redirect:/results";
+        return "uploadForm";
     }
 }
