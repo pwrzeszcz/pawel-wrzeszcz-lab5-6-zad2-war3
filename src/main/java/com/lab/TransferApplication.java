@@ -43,7 +43,7 @@ public class TransferApplication implements CommandLineRunner
 	{
 		log.info("Creating tables");
 
-		jdbcTemplate.execute("DROP TABLE trasnfer IF EXISTS");
+		jdbcTemplate.execute("DROP TABLE transfer IF EXISTS");
 		jdbcTemplate.execute("CREATE TABLE transfer(" +
 				"id SERIAL, name VARCHAR(255), surname VARCHAR(255), transfer_title VARCHAR(255)," +
 				"account_number VARCHAR(255))");
